@@ -1,1 +1,1 @@
-## Promises, Async, Wait, Throw
+## Promises, Async, Aait, Throw
