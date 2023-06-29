@@ -2,5 +2,7 @@
  * Return a promise
  */
 export default function getResponseFromAPI() {
-  return new Promise((resolve, rejected) => resolve());
+  return new Promise((resolve) => {
+    resolve();
+  });
 }
