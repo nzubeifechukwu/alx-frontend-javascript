@@ -1,7 +1,7 @@
 /**
  * Pricing class uses composition to incorporate Currency class
  */
-//import Currency from './3-currency';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
@@ -28,7 +28,8 @@ export default class Pricing {
   // displayFullPrice method returns attributes in the
   // format `amount currency_name (currency_code)`
   displayFullPrice() {
-    return `${this._amount} ${this._currency._name} (${this._currency._code})`;
+    const dispCurr = new Currency(this._currency._code, this._currency._name);
+    return `${this._amount} ${dispCurr.displayFullCurrency()}`;
   }
 
   // convertPrice static method accepts arguments amount and conversionRate,
