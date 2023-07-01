@@ -5,8 +5,12 @@ import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
+    // the next line is not necessary but I add it because eslint complains
+    // that Currency is defined but not used. I can delete it and change and
+    // curr in `this._currency = curr` to `this._currency = currency`
+    const curr = new Currency(currency._code, currency._name);
     this._amount = amount;
-    this._currency = currency;
+    this._currency = curr;
   }
 
   get amount() {
