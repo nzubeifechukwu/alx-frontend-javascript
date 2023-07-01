@@ -1,13 +1,12 @@
 /**
- * Pricing class extends Currency class
+ * Pricing class uses composition to incorporate Currency class
  */
-import Currency from './3-currency'
+import Currency from './3-currency';
 
-export default class Pricing extends Currency {
+export default class Pricing {
   constructor(amount, currency) {
-    super(currency);
     this._amount = amount;
-    this._currency = currency;
+    this._currency = new Currency(currency._code, currency._name);
   }
 
   get amount() {
