@@ -1,16 +1,21 @@
 /**
- * Builidng is an abstract class. It cannot be instantiated, and any class that
- * extends from it must implement the evacuationWarningMessage method
+ * Builidng is an abstract class. Any class that extends from it must implement
+ * the evacuationWarningMessage method
  */
 export default class Building {
   constructor(sqft) {
-    // if (this.constructor === Building) {
-    // throw new Error('Object of abstract class Building cannot be created');
-    // }
     this._sqft = sqft;
+    // throw error if subclass does not overwrite evacuationWarningMessage method
+    if (this.constructor !== Building
+        && this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
+  }
+
+  get sqft() {
+    return this._sqft;
   }
 
   static evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
