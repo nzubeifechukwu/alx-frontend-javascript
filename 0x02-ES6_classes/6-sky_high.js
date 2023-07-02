@@ -5,13 +5,8 @@ import Building from './5-building';
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
-    super();
-    this._sqft = new Building(sqft)._sqft;
+    super(sqft);
     this._floors = floors;
-  }
-
-  get sqft() {
-    return this._sqft;
   }
 
   get floors() {
@@ -19,6 +14,6 @@ export default class SkyHighBuilding extends Building {
   }
 
   evacuationWarningMessage() { // eslint-disable-line
-    return 'Evacuate slowly the 60 floors';
+    return `Evacuate slowly the ${this._floors} floors`;
   }
 }
