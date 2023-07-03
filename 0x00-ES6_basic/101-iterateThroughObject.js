@@ -3,9 +3,9 @@ export default function iterateThroughObject(reportWithIterator) {
 
   for (const employee of reportWithIterator) {
     if (reportWithIterator.indexOf(employee) === reportWithIterator.length - 1) {
-      employees = employees + employee;
+      employees += employee;
     } else {
-      employees = employees + employee + ' | ';
+      employees = `${employees + employee} | `;
     }
   }
 
