@@ -18,30 +18,42 @@ const student_2: Student = {
   firstName: "Sylvia",
   lastName: "Jitti",
   age: 25,
-  location: "Nigeria",
+  location: "Cameroon",
 };
 
 // studentsList is an array of students
 const studentsList = [student_1, student_2];
 
 const table = document.createElement("table");
-const tableBody = document.createElement("tbody");
+let cell, cellText;
 
-for (let i = 0; i < studentsList.length; i++) {
-  const row = document.createElement("tr");
-
-  for (let j = 0; j < 2; j++) {
-    const cell = document.createElement("td");
-    const cellText = document.createTextNode(student_1.firstName);
-    cell.appendChild(cellText);
-    row.appendChild(cell);
-  }
-
-  tableBody.appendChild(row);
+// For table heading
+let row = document.createElement("tr");
+for (const heading of ["First Name", "Location"]) {
+  cell = document.createElement("th");
+  cellText = document.createTextNode(heading);
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+  table.appendChild(row);
 }
 
-table.appendChild(tableBody);
+// For table data
+for (const student of studentsList) {
+  row = document.createElement("tr");
+  for (i = 0; i < 2; i++) {
+    cell = document.createElement("td");
+    if (i === 0) {
+      cellText = document.createTextNode(student.firstName);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    } else {
+      cellText = document.createTextNode(student.location);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+  }
+  table.appendChild(row);
+}
 
 document.body.appendChild(table);
-
-table.setAttribute("body", "2");
+// table.setAttribute("body", "2");
