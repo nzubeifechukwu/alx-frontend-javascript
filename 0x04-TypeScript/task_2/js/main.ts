@@ -43,10 +43,23 @@ export class Teacher implements TeacherInterface {
 }
 
 // createEmployee function
-export function createEmployee(salary: number | string): Director | Teacher {
+export function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
   if (typeof salary === 'number' && salary < 500) {
     return new Teacher();
   }
 
   return new Director();
+}
+
+// isDirector function
+function isDirector(employee: DirectorInterface | TeacherInterface): employee is DirectorInterface {
+  return (employee as DirectorInterface).workDirectorTasks !== undefined;
+}
+
+function executeWork(employee: DirectorInterface | TeacherInterface): string {
+  if (employee instanceof DirectorInterface) {
+    return employee.workDirectorTasks();
+  }
+
+  return employee.workTeacherTasks();
 }
