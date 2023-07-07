@@ -25,3 +25,33 @@ function printTeacher(fn: (firstName: string, lastName: string) => string) {
 interface printTeacherFunction {
   printTeacher(firstName: string, lastName: string): string;
 }
+
+// StudentClass class
+class StudentClass {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// StudentClass constructor interface
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// StudentClass interface
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
