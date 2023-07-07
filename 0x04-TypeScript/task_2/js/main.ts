@@ -52,14 +52,27 @@ export function createEmployee(salary: number | string): DirectorInterface | Tea
 }
 
 // isDirector function
-function isDirector(employee: DirectorInterface | TeacherInterface): employee is DirectorInterface {
+export function isDirector(employee: DirectorInterface | TeacherInterface): employee is DirectorInterface {
   return (employee as DirectorInterface).workDirectorTasks !== undefined;
 }
 
-function executeWork(employee: DirectorInterface | TeacherInterface): string {
+// executeWork function
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
   if (employee instanceof DirectorInterface) {
     return employee.workDirectorTasks();
   }
 
   return employee.workTeacherTasks();
+}
+
+// Subjects is a String literal type
+export type Subjects = 'Math' | 'History';
+
+// function teachClass
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
 }
